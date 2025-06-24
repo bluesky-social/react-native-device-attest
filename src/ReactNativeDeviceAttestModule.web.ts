@@ -1,15 +1,18 @@
-import { registerWebModule, NativeModule } from 'expo';
+import { registerWebModule, NativeModule } from 'expo'
 
-import { ReactNativeDeviceAttestModuleEvents } from './ReactNativeDeviceAttest.types';
+import { ReactNativeDeviceAttestModuleEvents } from './ReactNativeDeviceAttest.types'
 
 class ReactNativeDeviceAttestModule extends NativeModule<ReactNativeDeviceAttestModuleEvents> {
-  PI = Math.PI;
+  PI = Math.PI
   async setValueAsync(value: string): Promise<void> {
-    this.emit('onChange', { value });
+    this.emit('onChange', { value })
   }
   hello() {
-    return 'Hello world! 👋';
+    return 'Hello world! 👋'
   }
 }
 
-export default registerWebModule(ReactNativeDeviceAttestModule, 'ReactNativeDeviceAttestModule');
+export default registerWebModule(
+  ReactNativeDeviceAttestModule,
+  'ReactNativeDeviceAttestModule'
+)

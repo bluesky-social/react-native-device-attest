@@ -30,14 +30,30 @@
   "homepage": "https://github.com/bluesky-social/react-native-device-attest#readme",
   "dependencies": {},
   "devDependencies": {
+    "@eslint/compat": "^1.2.7",
+    "@eslint/eslintrc": "^3.3.0",
+    "@eslint/js": "^9.22.0",
+    "@react-native/eslint-config": "^0.79.0",
     "@types/react": "~19.0.0",
+    "eslint": "^9.22.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
     "expo-module-scripts": "^4.1.6",
     "expo": "~53.0.0",
+    "prettier": "^3.0.3",
     "react-native": "0.79.1"
   },
   "peerDependencies": {
     "expo": "*",
     "react": "*",
     "react-native": "*"
+  },
+  "prettier": {
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false,
+    "semi": false
   }
 }

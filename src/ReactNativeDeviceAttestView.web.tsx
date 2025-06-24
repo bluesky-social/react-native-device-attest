@@ -1,8 +1,10 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import { ReactNativeDeviceAttestViewProps } from './ReactNativeDeviceAttest.types';
+import { ReactNativeDeviceAttestViewProps } from './ReactNativeDeviceAttest.types'
 
-export default function ReactNativeDeviceAttestView(props: ReactNativeDeviceAttestViewProps) {
+export default function ReactNativeDeviceAttestView(
+  props: ReactNativeDeviceAttestViewProps
+) {
   return (
     <div>
       <iframe
@@ -11,5 +13,5 @@ export default function ReactNativeDeviceAttestView(props: ReactNativeDeviceAtte
         onLoad={() => props.onLoad({ nativeEvent: { url: props.url } })}
       />
     </div>
-  );
+  )
 }

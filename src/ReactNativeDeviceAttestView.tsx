@@ -1,11 +1,13 @@
-import { requireNativeView } from 'expo';
-import * as React from 'react';
+import { requireNativeView } from 'expo'
+import * as React from 'react'
 
-import { ReactNativeDeviceAttestViewProps } from './ReactNativeDeviceAttest.types';
+import { ReactNativeDeviceAttestViewProps } from './ReactNativeDeviceAttest.types'
 
 const NativeView: React.ComponentType<ReactNativeDeviceAttestViewProps> =
-  requireNativeView('ReactNativeDeviceAttest');
+  requireNativeView('ReactNativeDeviceAttest')
 
-export default function ReactNativeDeviceAttestView(props: ReactNativeDeviceAttestViewProps) {
-  return <NativeView {...props} />;
+export default function ReactNativeDeviceAttestView(
+  props: ReactNativeDeviceAttestViewProps
+) {
+  return <NativeView {...props} />
 }
