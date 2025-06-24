@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android", "web"],
+  "apple": {
+    "modules": ["ReactNativeDeviceAttestModule"]
+  },
+  "android": {
+    "modules": ["xyz.blueskyweb.reactnativedeviceattest.ReactNativeDeviceAttestModule"]
+  }
+}
