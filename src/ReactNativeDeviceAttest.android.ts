@@ -4,7 +4,11 @@ import { DeviceAttestBase } from './DeviceAttestBase'
 const nativeModule = requireNativeModule('ReactNativeDeviceAttest')
 
 export default class ReactNativeDeviceAttest extends DeviceAttestBase {
-  static async getAppSetId(): Promise<string> {
-    return nativeModule.getAppSetId()
+  static async warumpIntegrity(): Promise<string> {
+    return nativeModule.warumpIntegrity()
+  }
+
+  static async getIntegrityToken(): Promise<string> {
+    return nativeModule.getIntegrityToken()
   }
 }

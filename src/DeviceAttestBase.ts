@@ -1,11 +1,15 @@
 import { NotImplementedError } from './NotImplemented'
 
 export class DeviceAttestBase {
-  static async generateToken(): Promise<string> {
+  static async getDeviceCheckToken(): Promise<string> {
     throw new NotImplementedError()
   }
 
-  static async getAppSetId(): Promise<string> {
+  static async warumpIntegrity(): Promise<string> {
+    throw new NotImplementedError()
+  }
+
+  static async getIntegrityToken(): Promise<string> {
     throw new NotImplementedError()
   }
 }
