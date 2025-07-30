@@ -5,11 +5,11 @@ export class DeviceAttestBase {
     throw new NotImplementedError()
   }
 
-  static async warumpIntegrity(): Promise<string> {
+  static async warumpIntegrity(_gcpProjectId: number): Promise<string> {
     throw new NotImplementedError()
   }
 
-  static async getIntegrityToken(): Promise<string> {
+  static async getIntegrityToken(_action: string): Promise<string> {
     throw new NotImplementedError()
   }
 }

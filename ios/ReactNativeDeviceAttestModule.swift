@@ -3,7 +3,7 @@ import DeviceCheck
 
 public class ReactNativeDeviceAttestModule: Module {
   public func definition() -> ModuleDefinition {
-    AsyncFunction("getDeviceCheckToken") { (token: String, promise: Promise) in
+    AsyncFunction("getDeviceCheckToken") { (promise: Promise) in
       if !DCDevice.current.isSupported {
         promise.reject("DEVICECHECK_NOT_SUPPORTED", "DeviceCheck is not supported on this device")
         return
