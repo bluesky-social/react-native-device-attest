@@ -9,7 +9,9 @@ export class DeviceAttestBase {
     throw new NotImplementedError()
   }
 
-  static async getIntegrityToken(_action: string): Promise<string> {
+  static async getIntegrityToken(
+    _action: string
+  ): Promise<{ token: string; payload: string }> {
     throw new NotImplementedError()
   }
 }

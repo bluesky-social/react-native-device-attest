@@ -73,15 +73,16 @@ class Integrity(
 
   fun getToken(
     action: String,
-    cb: (token: String, e: Exception?) -> Unit,
+    cb: (token: String, payload: String, e: Exception?) -> Unit,
   ) {
     val tokenProvider =
       tokenProvider ?: run {
-        cb("", IllegalStateException("Play Integrity API not warmed up"))
+        cb("", "", IllegalStateException("Play Integrity API not warmed up"))
         return
       }
 
-    val hash = createRequestHash(action)
+    val payload = createRequestHashPayload(action)
+    val hash = payloadToHash(payload)
     val request =
       StandardIntegrityTokenRequest
         .builder()
@@ -93,27 +94,30 @@ class Integrity(
       .request(request)
       .apply {
         addOnSuccessListener { response ->
-          cb(response.token(), null)
+          cb(response.token(), payload, null)
         }
         addOnFailureListener { e ->
-          cb("", e)
+          cb("", "", e)
         }
         addOnCanceledListener {
-          cb("", Exception("Integrity token request was cancelled"))
+          cb("", "", Exception("Integrity token request was cancelled"))
         }
       }
   }
 
-  private fun createRequestHash(action: String): String {
+  private fun createRequestHashPayload(action: String): String {
     val data =
       JSONObject().apply {
         put("action", action)
         put("timestamp", System.currentTimeMillis())
         put("appSetId", appSetId)
       }
+    return data.toString()
+  }
 
+  private fun payloadToHash(payload: String): String {
     val digest = MessageDigest.getInstance("SHA-256")
-    val hashBytes = digest.digest(data.toString().toByteArray())
+    val hashBytes = digest.digest(payload.toByteArray())
     return Base64.encodeToString(hashBytes, Base64.DEFAULT)
   }
 }

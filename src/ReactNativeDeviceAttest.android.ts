@@ -8,7 +8,9 @@ export default class ReactNativeDeviceAttest implements DeviceAttestBase {
     return nativeModule.warumpIntegrity(gcpProjectId)
   }
 
-  static async getIntegrityToken(action: string): Promise<string> {
+  static async getIntegrityToken(
+    action: string
+  ): Promise<{ token: string; payload: string }> {
     return nativeModule.getIntegrityToken(action)
   }
 }
