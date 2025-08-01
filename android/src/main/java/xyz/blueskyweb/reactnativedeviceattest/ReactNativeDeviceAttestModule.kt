@@ -1,5 +1,6 @@
 package xyz.blueskyweb.reactnativedeviceattest
 
+import android.util.Log
 import expo.modules.kotlin.Promise
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
@@ -24,6 +25,7 @@ class ReactNativeDeviceAttestModule : Module() {
         this@ReactNativeDeviceAttestModule.integrity = integrity
         integrity.warmup { e ->
           if (e != null) {
+            Log.e("ReactNativeDeviceAttest", "Failed to warmup Play Integrity API", e)
             promise.reject("INTEGRITY_WARMUP_FAILED", "Failed to warmup Play Integrity API", e)
           } else {
             promise.resolve(null)

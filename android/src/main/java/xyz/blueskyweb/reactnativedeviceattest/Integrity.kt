@@ -53,11 +53,7 @@ class Integrity(
     val client = AppSet.getClient(context)
     client.appSetIdInfo.apply {
       addOnSuccessListener {
-        if (appSetId != null) {
-          cb(null)
-          return@addOnSuccessListener
-        }
-        if (it.scope == AppSetId.SCOPE_DEVELOPER) {
+        if (it.scope == AppSetId.SCOPE_APP) {
           appSetId = it.id
           cb(null)
         }
@@ -110,7 +106,7 @@ class Integrity(
       JSONObject().apply {
         put("action", action)
         put("timestamp", System.currentTimeMillis())
-        put("appSetId", appSetId)
+        put("appsetId", appSetId)
       }
     return data.toString()
   }
