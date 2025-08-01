@@ -1,6 +1,6 @@
 {
   "name": "react-native-device-attest",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A small library that allows for device attestation.",
   "main": "build/index.js",
   "types": "build/index.d.ts",
