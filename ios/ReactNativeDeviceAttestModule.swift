@@ -21,8 +21,9 @@ public class ReactNativeDeviceAttestModule: Module {
           promise.reject("DEVICECHECK_NO_TOKEN", "No token was provided by DeviceCheck")
           return
         }
-
-        promise.resolve(token)
+        
+        let tokenStr = token.base64EncodedString()
+        promise.resolve(tokenStr)
       }
     }
   }

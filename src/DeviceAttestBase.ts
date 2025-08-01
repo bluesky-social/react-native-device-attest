@@ -5,7 +5,7 @@ export class DeviceAttestBase {
     throw new NotImplementedError()
   }
 
-  static async warumpIntegrity(_gcpProjectId: number): Promise<string> {
+  static async warmupIntegrity(_gcpProjectId: number): Promise<string> {
     throw new NotImplementedError()
   }
 
