@@ -3,12 +3,14 @@ import { DeviceAttestBase } from './DeviceAttestBase'
 
 const nativeModule = requireNativeModule('ReactNativeDeviceAttest')
 
-export default class ReactNativeDeviceAttest extends DeviceAttestBase {
-  static async warumpIntegrity(): Promise<string> {
-    return nativeModule.warumpIntegrity()
+export default class ReactNativeDeviceAttest implements DeviceAttestBase {
+  static async warmupIntegrity(gcpProjectId: number): Promise<string> {
+    return nativeModule.warmupIntegrity(gcpProjectId)
   }
 
-  static async getIntegrityToken(): Promise<string> {
-    return nativeModule.getIntegrityToken()
+  static async getIntegrityToken(
+    action: string
+  ): Promise<{ token: string; payload: string }> {
+    return nativeModule.getIntegrityToken(action)
   }
 }
